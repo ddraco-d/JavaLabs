@@ -8,20 +8,34 @@ public class Company {
     private int incom = 0;
     private List<Employee> staff = new ArrayList<>();
 
-//    public List<Employee> getTopSalaryStaff(int count)
-//    {
-//        List<Double> top = new ArrayList<Double>();
-//        for (int i = 0; i < staff.size(); i++) {
-//            top.add(staff.get(i).getPosition().calcSalary(staff.get(i).getBase_salary()));
-//        }
-//        Collections.sort(top);
-//
-//    }
-//
-//    public List<Employee> getLowestSalaryStaff(int count)
-//    {
-//
-//    }
+
+    public List<Employee> getTopSalaryStaff(int count)
+    {
+        List<Employee> TopSalAll = new ArrayList<>();
+        List<Employee> TopSalCount = new ArrayList<>();
+        TopSalAll.addAll(staff);
+        Collections.sort(TopSalAll);
+        if (count > TopSalAll.size() || count < 0)
+            count = TopSalAll.size();
+        for (int i = 0; i < count; i++) {
+            TopSalCount.add(TopSalAll.get(i));
+        }
+        return (TopSalCount);
+    }
+
+    public List<Employee> getLowestSalaryStaff(int count)
+    {
+        List<Employee> TopSalAll = new ArrayList<>();
+        List<Employee> TopSalCount = new ArrayList<>();
+        TopSalAll.addAll(staff);
+        Collections.sort(TopSalAll);
+        if (count > TopSalAll.size() || count < 0)
+            count = TopSalAll.size();
+        for (int i = TopSalAll.size(); i > TopSalAll.size() - count; i--) {
+            TopSalCount.add(TopSalAll.get(i - 1));
+        }
+        return (TopSalCount);
+    }
 
     public void hire(Employee st)
     {
@@ -34,6 +48,12 @@ public class Company {
     void fire(Employee person)
     {
         staff.remove(person);
+    }
+    void fire_half()
+    {
+        for (int i = 0; i < staff.size() /2; i++) {
+            fire(staff.get(i));
+        }
     }
     int getIncome()
     {
