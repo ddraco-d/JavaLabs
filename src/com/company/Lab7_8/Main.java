@@ -20,14 +20,14 @@ public class Main {
 
         comp.hire(emp);
         comp.hire(emp1);
-        System.out.println(comp.getIncome());
+        System.out.println("Доход компании с двумя работниками - " + comp.getIncome());
 
         for (int i = 0; i < 180; i++)
         {
             base_salary = 10000 + (int)(Math.random()*(10001));
             staff.add(new Employee("Ivan", "Petrov", base_salary, new Operator()));
         }
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 80; i++)
         {
             staff.add(new Employee("Manager", "Petrov", 100000, new Manager()));
         }
