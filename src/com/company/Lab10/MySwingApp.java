@@ -7,26 +7,22 @@ public class MySwingApp extends JFrame {
     private int clickCount = 0;
     public MySwingApp(){
         setTitle("My swing app!!!");
-        setSize(500, 500);
+        setSize(350, 350);
 
         JLabel label = new JLabel("Enter First operand");
         JLabel label1 = new JLabel("Enter Second operand");
         JLabel label2 = new JLabel("Result");
         JTextField firstoperandfield = new JTextField();
         JTextField secondoperandfield = new JTextField();
-//        field.addCaretListener(action -> {
-//            try {
-//                int value = Integer.parseInt(field.getText());
-//                label.setText("" + ++value);
-//            } catch (Exception ex) {
-//                label.setText(ex.getMessage());
-//            }
-//
-//        });
         JButton plus = new JButton("+");
         JButton minus = new JButton("-");
         JButton multiplacation = new JButton("*");
         JButton division = new JButton("/");
+
+        label.setHorizontalAlignment(JLabel.CENTER);
+        label1.setHorizontalAlignment(JLabel.CENTER);
+
+
         plus.addActionListener(action -> {
             try {
                 int operand = Integer.parseInt(firstoperandfield.getText());
@@ -68,36 +64,22 @@ public class MySwingApp extends JFrame {
         });
 
         JPanel panel = new JPanel();
+        JPanel secondPanel = new JPanel();
 
+        secondPanel.add(plus);
+        secondPanel.add(minus);
+        secondPanel.add(division);
+        secondPanel.add(multiplacation);
 
-        GridLayout layout = new GridLayout(3, 5);
+        panel.setLayout(new GridLayout(6, 1));
         panel.add(label);
         panel.add(firstoperandfield);
-        panel.setLayout(layout);
 
 
-        JPanel secondPanel = new JPanel();
-        secondPanel.add(label1);
-        secondPanel.add(secondoperandfield);
-        secondPanel.setLayout(layout);
-
-
-        JPanel ThirdPanel = new JPanel();
-        ThirdPanel.setLayout(layout);
-        ThirdPanel.add(plus);
-        ThirdPanel.add(minus);
-        ThirdPanel.add(division);
-        ThirdPanel.add(multiplacation);
-
-
-        JPanel FourthPanel = new JPanel();
-        FourthPanel.add(label2);
-        FourthPanel.setLayout(layout);
-
-
+        panel.add(label1);
+        panel.add(secondoperandfield);
+        panel.add(label2);
         panel.add(secondPanel);
-        panel.add(ThirdPanel);
-        panel.add(FourthPanel);
         add(panel);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
