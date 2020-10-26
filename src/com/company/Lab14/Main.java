@@ -18,9 +18,9 @@ public class Main {
         String to_out = "";
         String currentStr;
 
-        b = sc.nextInt();
+        b = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < b; i++) {
-            sc = new Scanner(System.in);
+            //sc = new Scanner(System.in);
             parse = sc.nextLine();
             s = parse.split(" ");
             Rules.add(new Rule(s[0], s[1]));
@@ -28,16 +28,16 @@ public class Main {
         }
 
 
-        sc = new Scanner(System.in);
+        //sc = new Scanner(System.in);
         currentStr = sc.nextLine();
         for (int i = 0; i < currentStr.length(); i++) {
             int flag = 0;
             for (int j = 0; j < b; j++) {
-                if (i + Rules.get(j).getA().length() < currentStr.length()) {
+                if (i + Rules.get(j).getA().length() <= currentStr.length()) {
                     String key = currentStr.substring(i, i + Rules.get(j).getA().length());
                     if (Rules.get(j).getA().equals(key)) {
-                        to_out += Rules.get(j).getB();
                         flag = 1;
+                        to_out += Rules.get(j).getB();
                         i += Rules.get(j).getA().length() - 1;
                         break;
                     }
