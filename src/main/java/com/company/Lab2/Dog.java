@@ -1,6 +1,6 @@
 package com.company.Lab2;
 
-import java.security.spec.NamedParameterSpec;
+//import java.security.spec.NamedParameterSpec;
 
 public class Dog {
     int age;
